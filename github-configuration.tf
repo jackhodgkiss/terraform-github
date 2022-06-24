@@ -15,12 +15,14 @@ variable GITHUB_TOKEN {
 
 provider "github" {
   token = var.GITHUB_TOKEN
+  owner = "jackhodgkiss"
 }
 
-data "github_user" "current" {
-  username = ""
+data "github_branch" "default" {
+  repository = "kolla"
+  branch = "master"
 }
 
-output "current_github_login" {
-  value = "${data.github_user.current.login}"
+output "branch" {
+  value = "${data.github_branch.default}"
 }
