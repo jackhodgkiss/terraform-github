@@ -7,6 +7,20 @@ terraform {
   }
 }
 
+variable GITHUB_TOKEN {
+  type        = string
+  description = "GitHub token required for authentication"
+}
+
+
 provider "github" {
-  # Configuration options
+  token = var.GITHUB_TOKEN
+}
+
+data "github_user" "current" {
+  username = ""
+}
+
+output "current_github_login" {
+  value = "${data.github_user.current.login}"
 }
