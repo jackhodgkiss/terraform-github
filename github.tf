@@ -1,29 +1,3 @@
-terraform {
-  required_providers {
-    github = {
-      source = "integrations/github"
-      version = "4.26.1"
-    }
-  }
-}
-
-variable GITHUB_TOKEN {
-  type        = string
-  description = "GitHub token required for authentication"
-}
-
-variable "OPENSTACK_REPOSITORIES" {
-  default = [
-    "kolla",
-    "kolla-ansible"
-  ]
-}
-
-provider "github" {
-  token = var.GITHUB_TOKEN
-  owner = "a-demo-org"
-}
-
 resource "github_branch_protection" "OPENSTACK_REPOSITORIES" {
 
   for_each = toset(var.OPENSTACK_REPOSITORIES)
