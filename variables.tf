@@ -9,3 +9,19 @@ variable "OPENSTACK_REPOSITORIES" {
     "kolla-ansible"
   ]
 }
+
+variable "teams" {
+  default = [{
+      name = "Developers", 
+      description = "All developers are included within this team", 
+      privacy = "closed"
+      members = [
+        "jackhodgkiss"
+      ]
+    }, {
+      name = "OpenStack",
+      description = "Team responsible for OpenStack development"
+      privacy = "closed"
+    }
+  ]
+}

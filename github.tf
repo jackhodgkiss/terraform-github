@@ -1,3 +1,10 @@
+resource "github_team" "organisation_teams" {
+  for_each = {for team in var.teams: team.name => team}
+  name = "${each.value.name}"
+  description = "${each.value.description}"
+  privacy = "${each.value.privacy}"
+}
+
 resource "github_branch_protection" "OPENSTACK_REPOSITORIES" {
 
   for_each = toset(var.OPENSTACK_REPOSITORIES)
