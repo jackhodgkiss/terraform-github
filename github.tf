@@ -5,6 +5,21 @@ resource "github_team" "organisation_teams" {
   privacy = "${each.value.privacy}"
 }
 
+data "github_team" "organisation_teams" {
+  for_each = {for team in var.teams: team.name => team}
+  slug = "${each.value.name}"
+}
+
+resource "github_team_members" "team_members" {
+  for_each = data.github_team.organisation_teams
+  team_id = "${each.value.id}"
+
+  members {
+    username = "jackhodgkiss"
+    role = "member"
+  }
+}
+
 resource "github_branch_protection" "OPENSTACK_REPOSITORIES" {
 
   for_each = toset(var.OPENSTACK_REPOSITORIES)
