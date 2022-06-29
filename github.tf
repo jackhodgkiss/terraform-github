@@ -1,22 +1,28 @@
 resource "github_team" "organisation_teams" {
-  for_each = {for team in var.teams: team.name => team}
-  name = "${each.value.name}"
+  for_each = var.teams
+  name = "${each.key}"
   description = "${each.value.description}"
   privacy = "${each.value.privacy}"
 }
 
 data "github_team" "organisation_teams" {
-  for_each = {for team in var.teams: team.name => team}
-  slug = "${each.value.name}"
+  for_each = var.teams
+  slug = "${each.key}"
 }
 
-resource "github_team_members" "team_members" {
-  for_each = data.github_team.organisation_teams
-  team_id = "${each.value.id}"
-
-  members {
-    username = "jackhodgkiss"
-    role = "member"
+resource "github_team_members" "team_membership" {
+  for_each = {
+    for team in data.github_team.organisation_teams: team.id => [
+      for member in var.teams[team.name].members: member
+    ]
+  }
+  team_id = "${each.key}"
+  dynamic "members" {
+    for_each = "${each.value}"
+    content {
+      username = "${members.value}"
+      role = "maintainer"
+    }
   }
 }
 

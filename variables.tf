@@ -11,17 +11,20 @@ variable "OPENSTACK_REPOSITORIES" {
 }
 
 variable "teams" {
-  default = [{
-      name = "Developers", 
+  default = {
+    "Developers" = {
       description = "All developers are included within this team", 
       privacy = "closed"
       members = [
-        "jackhodgkiss"
+        "jackhodgkiss", "MrJHBauer"
       ]
-    }, {
-      name = "OpenStack",
+    },
+    "OpenStack" = {
       description = "Team responsible for OpenStack development"
       privacy = "closed"
+      members = [
+        "MrJHBauer"
+      ]
     }
-  ]
+  }
 }
