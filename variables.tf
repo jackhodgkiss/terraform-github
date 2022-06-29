@@ -13,18 +13,28 @@ variable "OPENSTACK_REPOSITORIES" {
 variable "teams" {
   default = {
     "Developers" = {
-      description = "All developers are included within this team", 
+      description = "All developers are included within this team"
       privacy = "closed"
-      members = [
-        "jackhodgkiss", "MrJHBauer"
-      ]
+      users = {
+        maintainers = [
+          "MrJHBauer"
+        ],
+        members = [
+          "jackhodgkiss"
+        ]
+      }
     },
     "OpenStack" = {
       description = "Team responsible for OpenStack development"
       privacy = "closed"
-      members = [
-        "MrJHBauer"
-      ]
+      users = {
+        maintainers = [
+          "MrJHBauer"
+        ],
+        members = [
+          "jackhodgkiss"
+        ]
+      }
     }
   }
 }
