@@ -9,7 +9,7 @@ resource "github_branch_protection" "OPENSTACK_REPOSITORIES" {
   allows_force_pushes = false
 
   push_restrictions = [
-    data.github_user.jackhodgkiss.node_id,
+    resource.github_team.organisation_teams["Developers"].node_id
   ]
 
   required_status_checks {
@@ -24,8 +24,4 @@ resource "github_branch_protection" "OPENSTACK_REPOSITORIES" {
   required_pull_request_reviews {
     require_code_owner_reviews = true
   }
-}
-
-data "github_user" "jackhodgkiss" {
-  username = "jackhodgkiss"
 }
