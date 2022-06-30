@@ -5,6 +5,13 @@ resource "github_team" "organisation_teams" {
   privacy = "${each.value.privacy}"
 }
 
+resource "github_team_repository" "developer_repositories" {
+  for_each = toset(var.all_repositories)
+  team_id = resource.github_team.organisation_teams["Developers"].id
+  repository = "${each.value}"
+  permission = "maintain"
+}
+
 resource "github_team_members" "team_membership" {
   for_each = {
     for team in resource.github_team.organisation_teams: team.id => 
