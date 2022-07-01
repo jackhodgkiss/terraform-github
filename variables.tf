@@ -44,6 +44,18 @@ variable "teams" {
           "jackhodgkiss"
         ]
       }
+    },
+    "Kayobe" = {
+      description = "Team responsible for Kayobe development"
+      privacy = "closed"
+      users = {
+        maintainers = [
+          "MrJHBauer"
+        ],
+        members = [
+          "jackhodgkiss"
+        ]
+      }
     }
   }
 }
