@@ -3,6 +3,22 @@ variable GITHUB_TOKEN {
   description = "GitHub token required for authentication"
 }
 
+variable "repositories" {
+  default = {
+    "OpenStack" = [
+      "kolla",
+      "kolla-ansible"
+    ],
+    "Ansible" = [
+      "ansible-collection-pulp",
+      "ansible-role-os-images"
+    ],
+    "Kayobe" = [
+      "stackhpc-kayobe-config"
+    ]
+  }
+}
+
 variable "OPENSTACK_REPOSITORIES" {
   default = [
     "kolla",
@@ -47,6 +63,18 @@ variable "teams" {
     },
     "Kayobe" = {
       description = "Team responsible for Kayobe development"
+      privacy = "closed"
+      users = {
+        maintainers = [
+          "MrJHBauer"
+        ],
+        members = [
+          "jackhodgkiss"
+        ]
+      }
+    },
+    "Ansible" = {
+      description = "Team responsible for Ansible development"
       privacy = "closed"
       users = {
         maintainers = [

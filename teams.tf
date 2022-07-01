@@ -6,10 +6,31 @@ resource "github_team" "organisation_teams" {
 }
 
 resource "github_team_repository" "developer_repositories" {
-  for_each = toset(var.all_repositories)
+  for_each = toset(flatten(values(var.repositories)))
   team_id = resource.github_team.organisation_teams["Developers"].id
   repository = "${each.value}"
   permission = "maintain"
+}
+
+resource "github_team_repository" "openstack_repositories" {
+  for_each = toset(var.repositories["OpenStack"])
+  team_id = resource.github_team.organisation_teams["OpenStack"].id
+  repository = "${each.value}"
+  permission = "admin"
+}
+
+resource "github_team_repository" "ansible_repositories" {
+  for_each = toset(var.repositories["Ansible"])
+  team_id = resource.github_team.organisation_teams["Ansible"].id
+  repository = "${each.value}"
+  permission = "admin"
+}
+
+resource "github_team_repository" "kayobe_repositories" {
+  for_each = toset(var.repositories["Kayobe"])
+  team_id = resource.github_team.organisation_teams["Kayobe"].id
+  repository = "${each.value}"
+  permission = "admin"
 }
 
 resource "github_team_members" "team_membership" {
