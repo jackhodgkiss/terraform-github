@@ -24,3 +24,21 @@ resource "github_branch_protection" "openstack_branch_protection" {
     require_code_owner_reviews = true
   }
 }
+
+resource "github_branch_protection" "ansible_branch_protection" {
+  for_each = toset(var.repositories["Ansible"])
+  repository_id = each.key
+
+  pattern = "+([m][a][i][n]|[m][a][s][t][e][r])*"
+  require_conversation_resolution = true
+  allows_deletions = false
+  allows_force_pushes = false
+
+  push_restrictions = [
+    resource.github_team.organisation_teams["Developers"].node_id
+  ]
+
+  required_pull_request_reviews {
+    require_code_owner_reviews = true
+  }
+}
