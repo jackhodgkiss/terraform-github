@@ -19,7 +19,7 @@ variable "repositories" {
   }
 }
 
-variable "OPENSTACK_REPOSITORIES" {
+variable "openstack_repositories" {
   default = [
     "kolla",
     "kolla-ansible"

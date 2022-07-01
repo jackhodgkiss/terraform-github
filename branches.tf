@@ -1,6 +1,6 @@
-resource "github_branch_protection" "OPENSTACK_REPOSITORIES" {
+resource "github_branch_protection" "openstack_repositories" {
 
-  for_each = toset(var.OPENSTACK_REPOSITORIES)
+  for_each = toset(var.openstack_repositories)
   repository_id = each.key
 
   pattern = "stackhpc/**"
