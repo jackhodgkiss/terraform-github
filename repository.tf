@@ -61,3 +61,8 @@ resource "github_repository" "kolla" {
     ]
   }
 }
+
+data "github_repository" "repositories" {
+  for_each = toset(var.all_repositories)
+  full_name = format("%s/%s", var.owner, each.value)
+}

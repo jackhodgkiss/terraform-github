@@ -3,6 +3,10 @@ variable GITHUB_TOKEN {
   description = "GitHub token required for authentication"
 }
 
+variable owner {
+  default = "a-demo-org"
+}
+
 variable "repositories" {
   default = {
     "OpenStack" = [

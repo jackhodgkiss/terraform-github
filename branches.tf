@@ -29,7 +29,7 @@ resource "github_branch_protection" "ansible_branch_protection" {
   for_each = toset(var.repositories["Ansible"])
   repository_id = each.key
 
-  pattern = "+([m][a][i][n]|[m][a][s][t][e][r])*"
+  pattern = "${data.github_repository.repositories[each.key].default_branch}"
   require_conversation_resolution = true
   allows_deletions = false
   allows_force_pushes = false
