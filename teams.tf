@@ -35,12 +35,12 @@ resource "github_team_repository" "kayobe_repositories" {
 
 resource "github_team_members" "team_membership" {
   for_each = {
-    for team in resource.github_team.organisation_teams: team.id => 
-      var.teams[team.name].users
+    for team in resource.github_team.organisation_teams: team.name => 
+      team
   }
-  team_id = "${each.key}"
+  team_id = "${each.value.id}"
   dynamic "members" {
-    for_each = "${each.value["maintainers"]}"
+    for_each = "${var.teams[each.value.name].users["maintainers"]}"
     content {
       username = "${members.value}"
       role = "maintainer"
@@ -48,7 +48,7 @@ resource "github_team_members" "team_membership" {
   }
 
   dynamic "members" {
-    for_each = "${each.value["members"]}"
+    for_each = "${var.teams[each.value.name].users["members"]}"
     content {
       username = "${members.value}"
       role = "member"
