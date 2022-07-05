@@ -23,15 +23,6 @@ variable "repositories" {
   }
 }
 
-variable "all_repositories" {
-  default = [
-    "kolla",
-    "kolla-ansible",
-    "ansible-collection-pulp",
-    "ansible-role-os-images"
-  ]
-}
-
 variable "teams" {
   default = {
     "Developers" = {

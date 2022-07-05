@@ -57,6 +57,6 @@ resource "github_issue_label" "community_files_label" {
 }
 
 data "github_repository" "repositories" {
-  for_each = toset(var.all_repositories)
+  for_each = toset(flatten(values(var.repositories)))
   full_name = format("%s/%s", var.owner, each.value)
 }
