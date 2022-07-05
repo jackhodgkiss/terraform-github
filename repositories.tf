@@ -31,6 +31,31 @@ resource "github_repository" "repositories" {
   }
 }
 
+resource "github_issue_label" "stackhpc_label" {
+  for_each = toset(flatten(values(var.repositories)))
+  repository = "${each.value}"
+  name = "stackhpc-ci"
+  color = "E6E2C0"
+  description = "Automated action performed by stackhpc-ci"
+}
+
+resource "github_issue_label" "workflows_label" {
+  for_each = toset(flatten(values(var.repositories)))
+  repository = "${each.value}"
+  name = "workflows"
+  color = "638475"
+  description = "Workflow files have been modified"
+
+}
+
+resource "github_issue_label" "community_files_label" {
+  for_each = toset(flatten(values(var.repositories)))
+  repository = "${each.value}"
+  name = "community-files"
+  color = "3F84E5"
+  description = "Community files have been modified"
+}
+
 data "github_repository" "repositories" {
   for_each = toset(var.all_repositories)
   full_name = format("%s/%s", var.owner, each.value)
