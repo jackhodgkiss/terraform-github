@@ -1,11 +1,11 @@
 resource "github_branch_protection" "openstack_branch_protection" {
-  for_each = toset(var.repositories["OpenStack"])
+  for_each      = toset(var.repositories["OpenStack"])
   repository_id = each.key
 
-  pattern = "stackhpc/**"
+  pattern                         = "stackhpc/**"
   require_conversation_resolution = true
-  allows_deletions = false
-  allows_force_pushes = false
+  allows_deletions                = false
+  allows_force_pushes             = false
 
   push_restrictions = [
     resource.github_team.organisation_teams["Developers"].node_id
@@ -26,13 +26,13 @@ resource "github_branch_protection" "openstack_branch_protection" {
 }
 
 resource "github_branch_protection" "ansible_branch_protection" {
-  for_each = toset(var.repositories["Ansible"])
+  for_each      = toset(var.repositories["Ansible"])
   repository_id = each.key
 
-  pattern = "${data.github_repository.repositories[each.key].default_branch}"
+  pattern                         = data.github_repository.repositories[each.key].default_branch
   require_conversation_resolution = true
-  allows_deletions = false
-  allows_force_pushes = false
+  allows_deletions                = false
+  allows_force_pushes             = false
 
   push_restrictions = [
     resource.github_team.organisation_teams["Developers"].node_id

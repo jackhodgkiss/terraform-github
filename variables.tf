@@ -1,9 +1,9 @@
-variable GITHUB_TOKEN {
+variable "GITHUB_TOKEN" {
   type        = string
   description = "GitHub token required for authentication"
 }
 
-variable owner {
+variable "owner" {
   default = "a-demo-org"
 }
 
@@ -27,7 +27,7 @@ variable "teams" {
   default = {
     "Developers" = {
       description = "All developers are included within this team"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [
           "MrJHBauer"
@@ -39,7 +39,7 @@ variable "teams" {
     },
     "OpenStack" = {
       description = "Team responsible for OpenStack development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [
           "MrJHBauer"
@@ -51,7 +51,7 @@ variable "teams" {
     },
     "Kayobe" = {
       description = "Team responsible for Kayobe development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [
           "MrJHBauer"
@@ -63,7 +63,7 @@ variable "teams" {
     },
     "Ansible" = {
       description = "Team responsible for Ansible development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [
           "MrJHBauer"
