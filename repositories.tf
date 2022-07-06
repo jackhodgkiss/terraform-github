@@ -45,7 +45,6 @@ resource "github_issue_label" "workflows_label" {
   name        = "workflows"
   color       = "638475"
   description = "Workflow files have been modified"
-
 }
 
 resource "github_issue_label" "community_files_label" {
