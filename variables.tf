@@ -9,69 +9,81 @@ variable "owner" {
 
 variable "repositories" {
   default = {
-    "OpenStack" = [
-      "kolla",
-      "kolla-ansible"
-    ],
-    "Ansible" = [
-      "ansible-collection-pulp",
-      "ansible-role-os-images"
-    ],
-    "Kayobe" = [
-      "stackhpc-kayobe-config"
-    ]
+    "Ansible" = [],
+    "Azimuth" = [],
+    "Batch" = [],
+    "Kayobe" = [],
+    "OpenStack" = [],
+    "ReleaseTrain" = [],
+    "SMSLab" = [],
   }
 }
 
 variable "teams" {
   default = {
-    "Developers" = {
-      description = "All developers are included within this team"
-      privacy     = "closed"
+    "Ansible" = {
+      description = "Team responsible for Ansible development"
+      privacy = "closed"
       users = {
-        maintainers = [
-          "MrJHBauer"
-        ],
-        members = [
-          "jackhodgkiss"
-        ]
+        maintainers = [],
+        members = [],
       }
     },
-    "OpenStack" = {
-      description = "Team responsible for OpenStack development"
-      privacy     = "closed"
+    "Azimuth" = {
+      description = "Team responsible for Azimuth development"
+      privacy = "closed"
       users = {
-        maintainers = [
-          "MrJHBauer"
-        ],
-        members = [
-          "jackhodgkiss"
-        ]
+        maintainers = [],
+        members = [],
+      }
+    },
+    "Batch" = {
+      description = "Team responsible for Batch development"
+      privacy = "closed"
+      users = {
+        maintainers = [],
+        members = [],
+      }
+    },
+    "Developers" = {
+      description = "Team responsible for Developers development"
+      privacy = "closed"
+      users = {
+        maintainers = [],
+        members = [],
       }
     },
     "Kayobe" = {
       description = "Team responsible for Kayobe development"
-      privacy     = "closed"
+      privacy = "closed"
       users = {
-        maintainers = [
-          "MrJHBauer"
-        ],
-        members = [
-          "jackhodgkiss"
-        ]
+        maintainers = [],
+        members = [],
       }
     },
-    "Ansible" = {
-      description = "Team responsible for Ansible development"
-      privacy     = "closed"
+    "OpenStack" = {
+      description = "Team responsible for OpenStack development"
+      privacy = "closed"
       users = {
-        maintainers = [
-          "MrJHBauer"
-        ],
-        members = [
-          "jackhodgkiss"
-        ]
+        maintainers = [],
+        members = [],
       }
-    }
+    },
+    "ReleaseTrain" = {
+      description = "Team responsible for Release Train development"
+      privacy = "closed"
+      users = {
+        maintainers = [],
+        members = [],
+      }
+    },
+    "SMSLab" = {
+      description = "Team responsible for SMS Lab development"
+      privacy = "closed"
+      users = {
+        maintainers = [],
+        members = [],
+      }
+    },
   }
 }
