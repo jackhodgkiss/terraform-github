@@ -7,18 +7,6 @@ variable "owner" {
   default = "a-demo-org"
 }
 
-variable "repositories" {
-  default = {
-    "Ansible" = [],
-    "Azimuth" = [],
-    "Batch" = [],
-    "Kayobe" = [],
-    "OpenStack" = [],
-    "ReleaseTrain" = [],
-    "SMSLab" = [],
-  }
-}
-
 variable "teams" {
   default = {
     "Ansible" = {
@@ -26,7 +14,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "Azimuth" = {
@@ -34,7 +24,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "Batch" = {
@@ -42,7 +34,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "Developers" = {
@@ -50,7 +44,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "Kayobe" = {
@@ -58,7 +54,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "OpenStack" = {
@@ -66,7 +64,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "ReleaseTrain" = {
@@ -74,7 +74,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
     "SMSLab" = {
@@ -82,7 +84,9 @@ variable "teams" {
       privacy = "closed"
       users = {
         maintainers = [],
-        members = [],
+        members = [
+          "jackhodgkiss"
+        ],
       }
     },
   }
