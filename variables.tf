@@ -52,7 +52,7 @@ variable "teams" {
       }
     },
     "Developers" = {
-      description = "Team responsible for Developers development"
+      description = "All employees are a member of this team"
       privacy     = "closed"
       users = {
         maintainers = [],
