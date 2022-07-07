@@ -65,7 +65,7 @@ resource "github_team_members" "team_membership" {
   for_each = {
     for team in resource.github_team.organisation_teams : team.name => team
   }
-  
+
   team_id = each.value.id
 
   dynamic "members" {

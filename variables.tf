@@ -7,11 +7,23 @@ variable "owner" {
   default = "a-demo-org"
 }
 
+variable "repositories" {
+  default = {
+    "Ansible"      = [],
+    "Azimuth"      = [],
+    "Batch"        = [],
+    "Kayobe"       = [],
+    "OpenStack"    = [],
+    "ReleaseTrain" = [],
+    "SMSLab"       = [],
+  }
+}
+
 variable "teams" {
   default = {
     "Ansible" = {
       description = "Team responsible for Ansible development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -21,7 +33,7 @@ variable "teams" {
     },
     "Azimuth" = {
       description = "Team responsible for Azimuth development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -31,7 +43,7 @@ variable "teams" {
     },
     "Batch" = {
       description = "Team responsible for Batch development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -41,7 +53,7 @@ variable "teams" {
     },
     "Developers" = {
       description = "Team responsible for Developers development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -51,7 +63,7 @@ variable "teams" {
     },
     "Kayobe" = {
       description = "Team responsible for Kayobe development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -61,7 +73,7 @@ variable "teams" {
     },
     "OpenStack" = {
       description = "Team responsible for OpenStack development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -71,7 +83,7 @@ variable "teams" {
     },
     "ReleaseTrain" = {
       description = "Team responsible for Release Train development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
@@ -81,7 +93,7 @@ variable "teams" {
     },
     "SMSLab" = {
       description = "Team responsible for SMS Lab development"
-      privacy = "closed"
+      privacy     = "closed"
       users = {
         maintainers = [],
         members = [
