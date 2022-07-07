@@ -23,6 +23,9 @@ resource "github_branch_protection" "openstack_branch_protection" {
   required_pull_request_reviews {
     require_code_owner_reviews = true
   }
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "ansible_branch_protection" {
@@ -40,5 +43,8 @@ resource "github_branch_protection" "ansible_branch_protection" {
 
   required_pull_request_reviews {
     require_code_owner_reviews = true
+  }
+  lifecycle {
+    prevent_destroy = true
   }
 }
